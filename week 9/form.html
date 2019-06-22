@@ -1,0 +1,44 @@
+<!-- public/form.html -->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Postal Rate Calculator</title>
+    <link rel ="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+    <style>
+      body {
+        padding-top: 50px;
+      }
+      
+      
+    </style>
+  </head>
+
+<body class="container">
+  
+  
+  <main>
+    <h1>Postal Rate Submission Form</h1>
+    <form action="/math" method="get">
+      <select name="mailtype">
+			<option>Letters(Stamped)</option>
+			<option>Letters(Metered)</option>
+			<option>Large Envelopes(Flat)</option>
+			<option>First-Class Package Service-Retail</option>
+		</select>
+      <br>
+      <br>
+      Please enter the weight of item to be shipped: 
+      <input type="text" name="weight" value="">
+      <br>
+      
+      <input type="submit" value="Calculate">
+    
+    </form>
+  </main>
+  <footer>
+    <!--<p class="text-center text-muted">© Copyright 2014 The Awesome People</p>-->
+  </footer>
+  
+  
+</body>
+</html>
