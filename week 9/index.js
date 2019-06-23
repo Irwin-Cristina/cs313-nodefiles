@@ -4,15 +4,15 @@ const path = require('path')
 const PORT = process.env.PORT || 5000
 
 express()
-  .use(express.static(path.join(__dirname, 'public')))
-  .set('views', path.join(__dirname, 'views'))
+  .use(express.static(path.join(__dirname, 'public')))//form.html
+  .set('views', path.join(__dirname, 'views'))//results.ejs
   //.set('views', __dirname + '/views')
-  .set('view engine', 'ejs')
-  .get('/', (req, res) => res.render('pages/index'))
-  .get('/math', calculateShipping)
+  .set('view engine', 'ejs')//use ejs
+  .get('/', (req, res) => res.render('pages/index')) //renders the index.ejs
+  .get('/math', calculateShipping)//where the get goes to do calculations currently on index.js
 
   
-  .listen(PORT, () => console.log(`Listening on ${ PORT }`))
+  .listen(PORT, () => console.log(`Listening on ${ PORT }`)) //port
 
 
 
@@ -31,7 +31,7 @@ function calculateShipping(request, response) {
   //Compute result
 function computeShipping(response, ml, wt){ //function called from above
     //var result ;
-    var price =0;
+    let price =0;
     
   if (ml == "Letters(Stamped)") {
       price = stampedLetters(wt); //call function stampedLetters and pass the wt variable
@@ -42,7 +42,7 @@ function computeShipping(response, ml, wt){ //function called from above
     } else if (ml == "First-Class Package Service-Retail") {
       price = package(wt); //call function package and pass the wt variable
 
-    } else{
+    } else {
       
     }
 
@@ -63,16 +63,16 @@ function stampedLetters(wt) {
   var wt;
   
   if (wt < 1)
-    price = .55;
+    price = "$0.55";
   
   if (wt > 1 && wt < 2)
-    price = .70;
+    price = "$0.70";
   
   if (wt > 2 && wt < 3)
-    price = .85;
+    price = "$0.85";
   
   if (wt == 3.5)
-    price = 1.00;
+    price = "$1.00";
   
   return price;
 }
@@ -83,13 +83,13 @@ function meteredLetters(wt) {
   var price;
   var wt;
   if (wt < 1)
-    price = .50;
+    price = "$0.50";
   if (wt > 1 && wt < 2)
-    price = .65;
+    price = "$0.65";
   if (wt > 2 && wt < 3)
-    price = .80;
+    price = "$0.80";
   if (wt == 3.5)
-    price = .95;
+    price = "$0.95";
   return price;
 }
 
@@ -100,43 +100,43 @@ function largeEnvelopes(wt) {
   var price;
   var wt;
   if (wt < 1)
-    price = 1.00;
+    price = "$1.00";
   
   if (wt > 1 &&  wt < 2)
-    price = 1.15;
+    price = "$1.15";
   
   if (wt > 2 && wt < 3);
-    price = 1.30;
+    price = "$1.30";
   
   if (wt > 3 && wt < 4)
-    price =  1.45;
+    price =  "$1.45";
   
   if (wt > 4 && wt < 5)
-    price =  1.60;
+    price =  "$1.60";
   
   if (wt > 5 && wt < 6)
-    price =  1.75;
+    price =  "$1.75";
   
   if (wt > 6 && wt < 7)
-    price =  1.90;
+    price =  "$1.90";
   
   if (wt > 7 && wt <  8)
-    price =  2.05;
+    price =  "$2.05";
   
   if (wt > 8 && wt < 9)
-    price =  2.20;
+    price =  "$2.20";
   
   if (wt > 9 && wt < 10)
-    price =  2.35;
+    price =  "$2.35";
   
   if (wt > 10 && wt < 11)
-    price =  2.50;
+    price =  "$2.50";
   
   if (wt > 11 && wt < 12)
-    price =  2.65;
+    price =  "$2.65";
   
   if (wt == 13)
-    price = 2.80;
+    price = "$2.80";
   
   return price;
 }
@@ -148,16 +148,16 @@ function package(wt){
   var wt;
   
   if (wt < 1)
-    price = 3.66;
+    price = "$3.66";
   
   if (wt > 1 && wt < 4)
-    price = 3.66;
+    price = "$3.66";
   
   if (wt > 4 && wt < 8);
-    price = 4.39;
+    price = "$4.39";
   
   if (wt == 13)
-    price = 5.71;
+    price = "$5.71";
   
   return price;
   

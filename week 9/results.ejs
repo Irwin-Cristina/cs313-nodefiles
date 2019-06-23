@@ -10,6 +10,10 @@
         padding-top: 50px;
       }
       
+      .bold {
+        font-weight: bolder;
+        color: darkblue;
+      }
       
     </style>
 </head>
@@ -22,9 +26,9 @@
     <div class ="col-sm-8">
       <div class = "jumbotron">
         <h1>Shipping prices</h1>
-          <p>Weight:<%=weight%></p>
-          <p>Mail Type:<%=mail%></p>
-          <p>Package cost:<%=price%></p>
+          <p><span class="bold">Weight: </span><%=weight %></p>
+          <p><span class="bold">Mail Type: </span><%=mail %></p>
+          <p><span class="bold">Package cost: </span><%=price %></p>
           
       </div>
     </div>
